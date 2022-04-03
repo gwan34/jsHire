@@ -1,0 +1,24 @@
+section{
+    transform: translateX(25vw);
+    align-items: center;
+    padding: 4rem;
+}
+
+.item_row{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapper{
+    width: 30rem;
+    max-width: 30rem;
+}
+.item_card{
+    margin-bottom: 48px;
+}
+@media(max-width: 600px){
+    .navigation_footer{
+        display: none;
+    }
+}

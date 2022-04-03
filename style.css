@@ -21,6 +21,7 @@ li , span ,a , p , h1 ,h2 , h3 , h4 ,h5 , h6 , i {
 
 li{
     list-style: none;
+    cursor: pointer;
 }
 a{
     text-decoration: none;
@@ -37,8 +38,12 @@ a:hover{
 
 }
 
+main{
+    overflow: hidden;
+}
 
-aside{
+
+  header,aside{
     position: fixed;
     top : 0px;
 }
@@ -47,14 +52,16 @@ header{
     display: flex;
     justify-content: flex-end;
     padding : 4rem;
+    right: 0;
+    z-index: 100;
 }
 
 
 aside{
     width : 20%;
     height: 100vh;
-    min-width: 200px;
-    max-width : 300px;
+    min-width: 25vw;
+    max-width : 30vw;
     padding : 4rem;
     background-color: #fcfcfc;
     display: flex;
@@ -62,6 +69,7 @@ aside{
     align-items: center;
     justify-content: flex-start;
     box-shadow: 1px 2px 2px rgba(0,0,0,0.1);
+    z-index: 100;
 }
 .navigation_header{
     position: relative;
@@ -71,8 +79,8 @@ aside{
 }
 .navigation_header>img{
  
-    width: 20rem;
-    height: 10rem;
+    width: 100%;
+    height: auto;
  
    
 }
@@ -169,20 +177,102 @@ aside{
 }
 
 section{
+    margin-top : 8rem;
     min-height: 100vh;
-    padding: 4rem;
-    width: calc(100% - 300px);
+    padding: 4rem 0 0 0rem;
+    width: calc(100% - 30vw);
     position: relative;
-    left: 300px;
+    transform: translateX(28vw);
+    overflow: scroll;
 }
 
 .section_title{
     font-weight: 500;
-  
+    margin-bottom : 120px;
 }
 .item_list{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
     min-height: 60vh;
+}
+.item_row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 200px;
+}
+.item_card{
+    max-width: 28vw;
+    min-width: 23vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapper{
+    width: 100%;
+    height: 40rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('./asset/p1.jpeg');
+    background-size: cover;
+    margin-bottom: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    background-position: center;
+ 
+}
+.mask_handler:hover > .item {
+    transform: scale(1.2);
+}
+.mask_handler:hover > .mask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(46,46,46,0.5);
+  
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 40;
+}
+
+.item_name{
+    font-weight: 500;
+    letter-spacing: 0;
+    color : #343434;
+}
+.item_price{
+    letter-spacing: 0;
+    font-weight: bolder;
+}
+.item_brief_description{
+    color : white;
+    font-weight: bold;
+}
+
+
+
+.animate{
+    animation : trans-up .5s ease-in-out forwards;
+}
+
+@keyframes trans-up{
+    0%{
+        transform : translateY(0);
+    }
+    100%{
+        transform: translateY(-80px);
+    }
 }
